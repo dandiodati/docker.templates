@@ -20,7 +20,7 @@
   [b]Note:[/b] Set Network to br0 and assign a static IP address.[br]
   </Overview>
   <Category>Cloud: Network:Other Productivity: Tools:</Category>
-  <WebUI>https://[IP]:[PORT:7443]/</WebUI>
+  <WebUI>https://[IP]:[PORT:8088]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/dandiodati/docker.templates/raw/master/nextCloud.png</Icon>
   <ExtraParams>--log-opt max-size=50m --log-opt max-file=1 --sysctl=net.core.somaxconn=511</ExtraParams>
@@ -102,12 +102,26 @@
   </Environment>
 <!--  
 <BaseImage>phusion/baseimage:0.9.22</BaseImage>
-  <Config Name="WebUI Port" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
-  <Config Name="Data Path" Target="/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ownCloud/data</Config>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+
+
+
+  
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
   <Config Name="MySQL Password" Target="DB_PASS" Default="owncloud" Mode="" Description="Container Variable: DB_PASS" Type="Variable" Display="always" Required="false" Mask="false">owncloud</Config>
   <Config Name="AppData Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/ownCloud</Config>
 -->
+  <Config Name="WebUI Port" Target="80" Default="8088" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">8088</Config>
+  <Config Name="WebUI Port" Target="443" Default="7443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">7443</Config>
 
+  <Config Name="Home Path" Target="/var/www/html" Default="" Mode="rw" Description="Container Path: /" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/nextCloud/</Config>
+  <Config Name="Data Path" Target="/var/www/html/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/data</Config>
+ <Config Name="Config Path" Target="/var/www/html/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/config</Config>
+ <Config Name="Apps Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: custom apps" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/apps</Config>
+ <Config Name="Custom Theme Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: my theme" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/mytheme</Config>
+ <Config Name="mysql Path" Target="/var/lib/mysql" Default="" Mode="rw" Description="Container Path: db" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nextCloud/db</Config>
+
+<Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="root_changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">root_changeme</Config>
+<Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">changeme</Config>
+<Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="nexcloud" Mode="" Description="Container Variable: " Type="Variable" Display="advanced" Required="true" Mask="false">nextcloud</Config>
+<Config Name="MYSQL_USER" Target="MYSQL_USER" Default="nexcloud" Mode="" Description="Container Variable: " Type="Variable" Display="advanced" Required="true" Mask="false">nextcloud</Config>
 </Container>
