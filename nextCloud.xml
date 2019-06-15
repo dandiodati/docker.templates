@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Container version="2">
+<Container version="1.0">
   <Name>nextCloud</Name>
   <Date>2019-06-14</Date>
   <Repository>library/nextcloud</Repository>
@@ -117,7 +117,7 @@
   <Config Name="Data Path" Target="/var/www/html/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/data</Config>
  <Config Name="Config Path" Target="/var/www/html/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/config</Config>
  <Config Name="Apps Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: custom apps" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/apps</Config>
- <Config Name="Custom Theme Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: my theme" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/mytheme</Config>
+ <Config Name="Custom Theme Path" Target="/var/www/html/custom_theme" Default="" Mode="rw" Description="Container Path: my theme" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/mytheme</Config>
  <Config Name="mysql Path" Target="/var/lib/mysql" Default="" Mode="rw" Description="Container Path: db" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nextCloud/db</Config>
 
 <Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="root_changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">root_changeme</Config>
