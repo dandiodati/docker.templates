@@ -1,0 +1,71 @@
+<?xml version="1.1"?>
+<Container version="1.0">
+  <Name>ngnix-proxy</Name>
+  <Date>2019-06-14</Date>
+  <Repository>jwilder/nginx-proxy</Repository>
+  <Project>https://github.com/jwilder/nginx-proxy</Project>
+  <Registry>https://hub.docker.com/r/jwilder/nginx-proxy</Registry>
+  <DonateText>For my retirement.</DonateText>
+  <DonateLink>https://paypal.me/danielediodati?locale.x=en_U</DonateLink>
+  <DonateImage>https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png</DonateImage>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>true</Privileged>
+  <Support></Support>
+  <Overview>
+nginx-proxy sets up a container running nginx and docker-gen. docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
+  </Overview>
+  <Category>Cloud: Network:Other Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8088]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://www.nginx.com/wp-content/uploads/2017/12/products-icons-NGINX-Plus-v2-220x220@2x.png</Icon>
+  <ExtraParams>--log-opt max-size=50m --log-opt max-file=2</ExtraParams>
+  <Description>
+nginx-proxy sets up a container running nginx and docker-gen. docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+     <Port>
+        <HostPort>8099</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nginx_proxy/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>row</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>subdomain.yourdomain.com</Value>
+      <Name>VIRTUAL_HOST</Name>
+      <Mode/>
+   </Variable>
+   </Environment>
+<!--  
+<BaseImage>phusion/baseimage:0.9.22</BaseImage>
+
+
+
+  
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="MySQL Password" Target="DB_PASS" Default="owncloud" Mode="" Description="Container Variable: DB_PASS" Type="Variable" Display="always" Required="false" Mask="false">owncloud</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/ownCloud</Config>
+-->
+
+  <Config Name="sock mapping" Target="/var/run/docker.sock" Default="/mnt/user/appdata/nginx_proxy/docker.sock" Mode="ro" Description="Internal mapping dont change" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nginx_proxy/docker.sock</Config>
+
+  <Config Name="WebUI Port" Target="80" Default="8099" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">8088</Config>
+  <Config Name="WebUI Port" Target="443" Default="9443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">7443</Config>
+
+</Container>
