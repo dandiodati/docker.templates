@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.1"?>
 <Container version="1.0">
   <Name>nextCloud</Name>
   <Date>2019-06-14</Date>
@@ -13,23 +13,26 @@
   <Privileged>true</Privileged>
   <Support>https://forums.lime-technology.com/topic/57801-support-dlandon-owncloud/#comment-566487</Support>
   <Overview>
-  NextCloud provides universal access to your files via the web, your computer or your mobile devices &#x2014; wherever you are. Mariadb is built into the image. Built with php 7.1, mariadb 10.3 and nginx 1.15 
-  [br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-  [b]/config[/b] Where ownCloud should store its config files.[br]
-  [b]/data[/b] Where ownCloud should store its data files.[br][br]
-  [b]Note:[/b] Set Network to br0 and assign a static IP address.[br]
+  NextCloud provides a self hosted cloud service that allows you track and manage your files via the web, your computer, or mobile app.
+  Has support for different user accounts, and lots in internal apps that expand its capabilities. Was a spin off of OwnCloud.
+The self-hosted productivity platform that keeps you in control.
+
+  If you want to use it over the internet then it is recommended to use a separate ssl proxy in front of it.
+This instance makes use of the built in mariadb and not a separate db so make sure on the first time usage to provide the same user and db table that is set in the passed in properties.  
   </Overview>
   <Category>Cloud: Network:Other Productivity: Tools:</Category>
-  <WebUI>https://[IP]:[PORT:8088]/</WebUI>
+  <WebUI>http://[IP]:[PORT:8088]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/dandiodati/docker.templates/raw/master/nextCloud.png</Icon>
   <ExtraParams>--log-opt max-size=50m --log-opt max-file=1 --sysctl=net.core.somaxconn=511</ExtraParams>
   <Description>
-  OwnCloud provides universal access to your files via the web, your computer or your mobile devices &#x2014; wherever you are. Mariadb is built into the image. Built with php 7.1, mariadb 10.3 and nginx 1.15 
-  [br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-  [b]/config[/b] Where ownCloud should store its config files.[br]
-  [b]/data[/b] Where ownCloud should store its data files.[br][br]
-  [b]Note:[/b] Set Network to Custom:br0 and assign a static IP address.[br]
+  NextCloud provides a self hosted cloud service that allows you track and manage your files via the web, your computer, or mobile app.
+  Has support for different user accounts, and lots in internalapps that expand its capabilities. Was a spin off of OwnCloud.
+The self-hosted productivity platform that keeps you in control.
+
+  If you want to use it over the internet then it is recommended to use a separate ssl proxy in front of it.
+This instance makes use of the built in mariadb and not a separate db so make sure on the first time usage to provide the same user and db \
+table that is set in the passed in properties.
   </Description>
   <Networking>
     <Mode>bridge</Mode>
@@ -68,11 +71,6 @@
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/nextCloud/theme</HostDir>
-      <ContainerDir>/var/www/html/themes/custom_theme</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
       <HostDir>/mnt/user/appdata/nextCloud/db</HostDir>
       <ContainerDir>/var/lib/mysql</ContainerDir>
       <Mode>rw</Mode>
@@ -99,6 +97,16 @@
       <Name>MYSQL_USER</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>localhost:8088</Value>
+      <Name>NEXTCLOUD_TRUSTED_DOMAINS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>subdomain.yourdomain.com</Value>
+      <Name>VIRTUAL_HOST</Name>
+      <Mode/>
+   </Variable>
   </Environment>
 <!--  
 <BaseImage>phusion/baseimage:0.9.22</BaseImage>
@@ -117,11 +125,14 @@
   <Config Name="Data Path" Target="/var/www/html/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/data</Config>
  <Config Name="Config Path" Target="/var/www/html/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/config</Config>
  <Config Name="Apps Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: custom apps" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/apps</Config>
- <Config Name="Custom Theme Path" Target="/var/www/html/custom_theme" Default="" Mode="rw" Description="Container Path: my theme" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/mytheme</Config>
  <Config Name="mysql Path" Target="/var/lib/mysql" Default="" Mode="rw" Description="Container Path: db" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nextCloud/db</Config>
 
 <Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="root_changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">root_changeme</Config>
 <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">changeme</Config>
+<Config Name="NEXTCLOUD_TRUSTED_DOMAINS" Target="NEXTCLOUD_TRUSTED_DOMAINS" Default="" Mode="" Description="Container Variable: Provides configuration of allowed domains/urls that are allowed to attach to this nextcloud instance " Type="Variable" Display="always" Required="false" Mask="false">localhost:8088</Config>
 <Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="nexcloud" Mode="" Description="Container Variable: " Type="Variable" Display="advanced" Required="true" Mask="false">nextcloud</Config>
 <Config Name="MYSQL_USER" Target="MYSQL_USER" Default="nexcloud" Mode="" Description="Container Variable: " Type="Variable" Display="advanced" Required="true" Mask="false">nextcloud</Config>
+
+<Config Name="NGINX_PROXY_VIRTUAL_HOST" Target="VIRTUAL_HOST" Default="" Mode="" Description="Used by nginx-proxy container to route to route to this docker image" Type="Variable" Display="advanced" Required="false" Mask="false">subdomain.yourdomain.com</Config>
+
 </Container>
