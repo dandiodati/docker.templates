@@ -1,6 +1,6 @@
 <?xml version="1.1"?>
-<Container version="1.2">
-  <Name>my-nextCloud</Name>
+<Container version="1.0">
+  <Name>nextCloud</Name>
   <Date>2019-06-14</Date>
   <Repository>library/nextcloud</Repository>
   <Project>https://nextcloud.com/</Project>
