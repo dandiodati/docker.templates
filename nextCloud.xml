@@ -1,5 +1,5 @@
-<?xml version="1.1"?>
-<Container version="1.2">
+<?xml version="1.0"?>
+<Container version="1.3">
   <Name>my-nextCloud</Name>
   <Date>2019-06-14</Date>
   <Repository>library/nextcloud</Repository>
@@ -121,11 +121,11 @@ table that is set in the passed in properties.
   <Config Name="WebUI Port" Target="80" Default="8088" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">8088</Config>
   <Config Name="WebUI Port" Target="443" Default="7443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">7443</Config>
 
-  <Config Name="Home Path" Target="/var/www/html" Default="" Mode="rw" Description="Container Path: /" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/nextCloud/</Config>
-  <Config Name="Data Path" Target="/var/www/html/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/data</Config>
- <Config Name="Config Path" Target="/var/www/html/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud/config</Config>
- <Config Name="Apps Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: custom apps" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud/apps</Config>
- <Config Name="mysql Path" Target="/var/lib/mysql" Default="" Mode="rw" Description="Container Path: db" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nextCloud/db</Config>
+  <Config Name="Home Path" Target="/var/www/html" Default="" Mode="rw" Description="Container Path: /" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/nextCloud2/</Config>
+  <Config Name="Data Path" Target="/var/www/html/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud2/data</Config>
+ <Config Name="Config Path" Target="/var/www/html/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextCloud2/config</Config>
+ <Config Name="Apps Path" Target="/var/www/html/custom_apps" Default="" Mode="rw" Description="Container Path: custom apps" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/nextCloud2/apps</Config>
+ <Config Name="mysql Path" Target="/var/lib/mysql" Default="" Mode="rw" Description="Container Path: db" Type="Path" Display="hidden" Required="true" Mask="false">/mnt/user/appdata/nextCloud2/db</Config>
 
 <Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="root_changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">root_changeme</Config>
 <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="changeme" Mode="" Description="Container Variable: " Type="Variable" Display="always" Required="true" Mask="false">changeme</Config>
