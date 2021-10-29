@@ -2,7 +2,7 @@
 <Container version="1.4">
   <Name>python-firetv</Name>
   <Date>2021-11-1</Date>
-  <Repository>library/nextcloud</Repository>
+  <Repository>acrelle/python-firetv</Repository>
   <Project>https://github.com/happyleavesaoc/python-firetv/blob/master/README.md</Project>
   <Registry>https://hub.docker.com/r/acrelle/python-firetv</Registry>
   <DonateText>For my retirement.</DonateText>
