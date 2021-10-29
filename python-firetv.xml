@@ -10,7 +10,7 @@
   <DonateImage>https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png</DonateImage>
   <Network>bridge</Network>
   <Shell>bash</Shell>
-  <Privileged>true</Privileged>
+  <Privileged>false</Privileged>
   <Support>https://github.com/happyleavesaoc/python-firetv/blob/master/README.md</Support>
   <Overview>
 This provides a rest API for conrolling a firetv. Requires the firetv to enable adb debugging for it to communication to the firetv.
@@ -109,8 +109,9 @@ This provides a rest API for conrolling a firetv. Requires the firetv to enable 
   <Config Name="WebUI Port" Target="443" Default="7443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">7443</Config>
 -->
 <Config Name="Server ADB Port" Target="5556" Default="5556" Mode="tcp" Description="Container ADB Server port" Type="Port" Display="always" Required="true" Mask="false">5556</Config>
-  <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata/python-firetv/config</Config>
+  <Config Name="Config Path" Target="/config" Default="/mnt/user/appdata/python-firetv/config" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/python-firetv/config</Config>
 
-<Config Name="DEFAULT Fire TV Device" Target="" Default="" Mode="" Description="Indicates the address and port of the fire tv device to control, example X.X.X.X:5555" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+<Config Name="DEFAULT Fire TV Device Name" Target="DEVICE_NAME" Default="" Mode="" Description="Gives a friendly name for the firetv device." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+<Config Name="DEFAULT Fire TV Device Host" Target="DEVICE_HOST" Default="" Mode="" Description="Indicates the address and port of the fire tv device to control, example X.X.X.X:5555" Type="Variable" Display="always" Required="true" Mask="false"></Config>
 
 </Container>
