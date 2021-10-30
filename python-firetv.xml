@@ -2,9 +2,9 @@
 <Container version="1.4">
   <Name>python-firetv</Name>
   <Date>2021-11-1</Date>
-  <Repository>acrelle/python-firetv</Repository>
-  <Project>https://github.com/happyleavesaoc/python-firetv/blob/master/README.md</Project>
-  <Registry>https://hub.docker.com/r/acrelle/python-firetv</Registry>
+  <Repository>dandiodati/python-firetv-docker</Repository>
+  <Project>https://github.com/dandiodati/python-firetv/blob/master/README.md</Project>
+  <Registry>https://hub.docker.com/repository/docker/dandiodati/python-firetv-docker</Registry>
   <DonateText>For my retirement.</DonateText>
   <DonateLink>https://paypal.me/danielediodati?locale.x=en_U</DonateLink>
   <DonateImage>https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png</DonateImage>
