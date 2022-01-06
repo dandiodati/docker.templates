@@ -2,9 +2,9 @@
 <Container version="1.4">
   <Name>python-pianobar</Name>
   <Date>2021-11-1</Date>
-  <Repository>dandiodati/python-pianobar-docker</Repository>
+  <Repository>dandiodati/python-pianobar</Repository>
   <Project>https://github.com/dandiodati/python-pianobar/blob/master/README.md</Project>
-  <Registry>https://hub.docker.com/repository/docker/dandiodati/python-pianobar-docker</Registry>
+  <Registry>https://hub.docker.com/repository/docker/dandiodati/python-pianobar</Registry>
   <DonateText>For my retirement.</DonateText>
   <DonateLink>https://paypal.me/danielediodati?locale.x=en_U</DonateLink>
   <DonateImage>https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png</DonateImage>
