@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<Container version="1.4">
+  <Name>python-pianobar</Name>
+  <Date>2021-11-1</Date>
+  <Repository>dandiodati/python-pianobar-docker</Repository>
+  <Project>https://github.com/dandiodati/python-pianobar/blob/master/README.md</Project>
+  <Registry>https://hub.docker.com/repository/docker/dandiodati/python-pianobar-docker</Registry>
+  <DonateText>For my retirement.</DonateText>
+  <DonateLink>https://paypal.me/danielediodati?locale.x=en_U</DonateLink>
+  <DonateImage>https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_74x21.png</DonateImage>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/happyleavesaoc/python-pianobar/blob/master/README.md</Support>
+  <Overview>
+This provides a rest API for conrolling a pianobar. Requires the firetv to enable adb debugging for it to communication to the firetv.
+  </Overview>
+  <Category>Cloud: Network:Other Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8088]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/dandiodati/docker.templates/raw/master/pianobar.png</Icon>
+  <Description>
+  </Description>
+<!--
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>7443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+     <Port>
+        <HostPort>8088</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nextCloud</HostDir>
+      <ContainerDir>/var/www/html</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nextCloud/data</HostDir>
+      <ContainerDir>/var/www/html/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume type="appdata">
+      <HostDir>/mnt/user/appdata/nextCloud/config</HostDir>
+      <ContainerDir>/var/www/html/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nextCloud/apps</HostDir>
+      <ContainerDir>/var/www/html/custom_apps</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nextCloud/db</HostDir>
+      <ContainerDir>/var/lib/mysql</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>root_changeme</Value>
+      <Name>MYSQL_ROOT_PASSWORD</Name>
+      <Mode/>
+   <Variable>
+      <Value>changeme</Value>
+      <Name>MYSQL_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+   <Variable>
+      <Value>nextcloud</Value>
+      <Name>MYSQL_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    </Variable>
+    <Variable>
+      <Value>nextcloud</Value>
+      <Name>MYSQL_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>localhost:8088</Value>
+      <Name>NEXTCLOUD_TRUSTED_DOMAINS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>subdomain.yourdomain.com</Value>
+      <Name>VIRTUAL_HOST</Name>
+      <Mode/>
+   </Variable>
+  </Environment>
+-->
+<!--  
+<BaseImage>phusion/baseimage:0.9.22</BaseImage>
+
+
+
+  
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="MySQL Password" Target="DB_PASS" Default="owncloud" Mode="" Description="Container Variable: DB_PASS" Type="Variable" Display="always" Required="false" Mask="false">owncloud</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/ownCloud</Config>
+  <Config Name="WebUI Port" Target="443" Default="7443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">7443</Config>
+-->
+<Config Name="Server ADB Port" Target="5556" Default="5556" Mode="tcp" Description="Container ADB Server port" Type="Port" Display="always" Required="true" Mask="false">5556</Config>
+  <Config Name="Config Path" Target="/config" Default="/mnt/user/appdata/python-pianobar/config" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/python-firetv/config</Config>
+
+<Config Name="DEFAULT Fire TV Device Name" Target="DEVICE_NAME" Default="" Mode="" Description="Gives a friendly name for the pianobar device." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+<Config Name="DEFAULT Fire TV Device Host" Target="DEVICE_HOST" Default="" Mode="" Description="Indicates the address and port of the fire tv device to control, example X.X.X.X:5555" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+
+</Container>
